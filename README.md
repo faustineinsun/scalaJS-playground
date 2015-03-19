@@ -31,7 +31,7 @@ Spray
 
 ---
 
-### Heroku
+### [Heroku](https://devcenter.heroku.com/articles/how-heroku-works)
 
 #### AddOn + logs
 
@@ -72,6 +72,7 @@ $ foreman start
 remote
 $ heroku config:set TIMES=2
 $ heroku config
+git commit and push
 $ heroku open
 ```
 
