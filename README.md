@@ -34,6 +34,14 @@ Spray
 ### Heroku
 
 ```
-$ git push heroku master
+$ git push origin master --> push to Github Master branch
+$ git push heroku master --> push to Heroku
+$ heroku open
+$ heroku logs --> tail
+Procfile can set background worker process
+$ heroku ps  --> check how many dynos are running
+$ heroku ps:scale web=2 --> can reduce delay but it's expensive
+$ npm install
+$ foreman start web --> run app locally, use `curl` to test
 ```
     
