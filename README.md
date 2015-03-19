@@ -33,15 +33,52 @@ Spray
 
 ### Heroku
 
+#### AddOn + logs
+
 ```
-$ git push origin master --> push to Github Master branch
-$ git push heroku master --> push to Heroku
-$ heroku open
 $ heroku logs --> tail
+$ heroku addons:add papertrail --> logging add-on
+$ heroku addons:open papertrail
+$ heroku addons:docs papertrail
+$ heroku addons
+```
+
+#### Scalability
+
+```
 Procfile can set background worker process
 $ heroku ps  --> check how many dynos are running
 $ heroku ps:scale web=2 --> can reduce delay but it's expensive
+```
+
+#### Run on local and remote machines
+
+```
 $ npm install
 $ foreman start web --> run app locally, use `curl` to test
+git commit and push
+$ git push origin master --> push to Github Master branch
+$ git push heroku master --> push to Heroku
+$ heroku open --> run on heroku
+```
+
+#### Modify environment variable
+
+```
+local
+$ vim .env
+$ foreman start
+
+remote
+$ heroku config:set TIMES=2
+$ heroku config
+$ heroku open
+```
+
+#### Console
+
+```
+$ heroku run node
+$ heroku run bash
 ```
     
