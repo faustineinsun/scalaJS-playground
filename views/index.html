@@ -180,9 +180,19 @@
 				<div class="progress-bar progress-success">
 				</div>
 			</div>
+
 			<div class="btn-group btn-group-sm">
-				 <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> Left</button> <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> Center</button> <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> Right</button> <button class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-justify"></em> Justify</button>
+                <button id="memcached-set-command" onclick="getMemcachedResponse('set');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> set</button> 
+                <button id="memcached-get-command" onclick="getMemcachedResponse('get');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> get</button> 
+                <button id="memcached-stats-command" onclick="getMemcachedResponse('stats');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> stats</button> 
+                <button id="memcached-delete-command" onclick="getMemcachedResponse('delete');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-justify"></em> delete</button>
 			</div>
+            <h4>Memcached Response:</h4>
+              <div style="border: 1px solid yellow; background-color: white; padding: 10px 20px; min-height: 53px;">
+                  <p> <div id="memcachedresponse"></div> </p>
+              </div>
+            <br> <br>
+
 			<div class="btn-group">
 				 <button class="btn btn-default">Action</button> <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
 				<ul class="dropdown-menu">
@@ -198,7 +208,7 @@
 						<a href="#">Something else here</a>
 					</li>
 				</ul>
-			</div> <button type="button" class="btn btn-primary">Default</button>
+			</div> <button type="button" class="btn btn-warning">Default</button>
 		</div>
 		<div class="col-md-4 column">
             <br> <br>

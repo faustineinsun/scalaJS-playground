@@ -53,6 +53,7 @@ git commit and push
 $ git push origin master --> push to Github Master branch
 $ git push heroku master --> push to Heroku
 $ heroku open --> run on heroku
+$ heroku restart --> solve Application Error
 ```
 
 #### Modify environment variable
