@@ -2,6 +2,6 @@
   "name": "scalaJS-playground",
   "description": "My scala.js playground: a Node.js app using Express 4",
   "repository": "https://github.com/faustineinsun/scalaJS-playground",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "logo": "http://node-js-sample.herokuapp.com/public/img/node.svg",
   "keywords": ["memcached cloud", "MySQL","node", "express", "static"]
 }

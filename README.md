@@ -20,18 +20,21 @@ $ sbt
 
 ---
 
-Spray
-- [http://spray.io/](http://spray.io/)  
-- [https://github.com/wandoulabs/spray-socketio](https://github.com/wandoulabs/spray-socketio)  
-- [http://ibruce.info/2014/04/06/hello-spray/](http://ibruce.info/2014/04/06/hello-spray/)  
-
----
-
 - $ `git rm -r --cached .idea`
 
 ---
 
-### [Heroku](https://devcenter.heroku.com/articles/how-heroku-works)
+## [Node Modules](https://github.com/joyent/node/wiki/modules)   
+
+* template engine
+    * [gaikan](https://github.com/Deathspike/gaikan) the fastest
+    * [Jade](http://jade-lang.com/)
+* [Bootstrap layoutit](http://www.layoutit.com/)
+    * [Bootstrap Components](http://getbootstrap.com/components/#glyphicons) 
+
+---
+
+## [Heroku](https://devcenter.heroku.com/articles/how-heroku-works)
 
 #### Scalability
 
@@ -98,6 +101,8 @@ set Memcached Cloud credentials both through `.env` and `heroku config:set`
 * [https://www.npmjs.com/package/memjs](https://www.npmjs.com/package/memjs)
     * include `memjs` into `package.json`, and then `$ npm install`
 
+* [node-memcached](https://github.com/3rd-Eden/node-memcached) 
+
 #### Console
 
 ```
@@ -115,3 +120,10 @@ $ heroku addons:docs papertrail
 $ heroku addons
 ```
     
+---
+
+## Spray
+- [http://spray.io/](http://spray.io/)  
+- [https://github.com/wandoulabs/spray-socketio](https://github.com/wandoulabs/spray-socketio)  
+- [http://ibruce.info/2014/04/06/hello-spray/](http://ibruce.info/2014/04/06/hello-spray/)  
+

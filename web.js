@@ -1,5 +1,4 @@
 var express = require('express')
-var app = express();
 var cool = require('cool-ascii-faces');
 
 // ClearDB MySQL
@@ -18,6 +17,16 @@ var memjsclient = memjs.Client.create(process.env.MEMCACHEDCLOUD_SERVERS, {
       password: process.env.MEMCACHEDCLOUD_PASSWORD
 });
 
+// find static files in ./public
+var app = express();
+app.set('views', __dirname + '/views');
+app.use(express.static(__dirname + '/public'));
+app.engine('html', require('ejs').renderFile);
+
+app.get('/', function(req, res) {
+      res.render('index.html');
+});
+
 // mysql connection
 // http://stackoverflow.com/questions/5818312/mysql-with-node-js
 // https://www.npmjs.com/package/mysql
@@ -30,9 +39,8 @@ mysqlconnection.connect(function(err) {
     console.log('connected as id ' + mysqlconnection.threadId);
 });
 
-app.set('port', (process.env.PORT || 5000))
 
-app.get('/', function(request, response) {
+app.get('/mysql', function(request, response) {
     // for cool-ascii-faces, print two ascii faces
     var faces = ''
     var times = process.env.TIMES || 5
@@ -60,6 +68,7 @@ memjsclient.get("foo", function (err, value, key) {
     }
 });
 
+app.set('port', (process.env.PORT || 5000))
 app.listen(app.get('port'), function() {
       console.log("Node app is running at localhost:" + app.get('port'))
 })
