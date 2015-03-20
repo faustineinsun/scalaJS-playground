@@ -65,13 +65,16 @@ $ heroku open --> run on heroku
 #### Modify environment variable
 
 ```
-local
+local (Foreman)
+$ bin/loadEnv4Foreman.sh --> load `.env` from backup dir (Foreman needs `.env`)  
 $ vim .env
+echo .env >> .gitignore  --> sensitive configuration values should not be committed to source-control
 $ foreman start
 
-remote
+remote (Heroku)
 $ heroku config:set TIMES=2
 $ heroku config
+$ bin/beforeCommit.sh --> backup and delete .env in current folder
 git commit and push
 $ heroku open
 ```
@@ -82,4 +85,23 @@ $ heroku open
 $ heroku run node
 $ heroku run bash
 ```
+
+#### [ClearDB MySQL](https://www.cleardb.com/developers/connect/paas/heroku/nodejs)
+
+```
+$ heroku addons:add cleardb:ignite
+$ heroku config
+$ heroku config:add DATABASE_URL=(the_copied_value_of_CLEARDB_DATABASE_URL)
+$ heroku config -s | grep CLEARDB_DATABASE_URL >> .env
+$ more .env
+$ echo .env >> .gitignore --> sensitive configuration values should not be committed to source-control
+$ bin/beforeCommit.sh --> backup and delete .env in current folder
+```
+
+- [Setup Heroku MySQL credentials on node.js](http://stackoverflow.com/questions/18408012/connection-to-mysql-from-nodejs-on-heroku-server)  
+    - [install mysql on node.js](https://www.npmjs.com/package/mysql)  
+    - credential info are saved to `.env`
+    - add new connection on local MySQL with Heroku MySQL credentials -> create table, insert a record to mysql on local machine 
+    - modify `index.js` and `package.json` 
+
     
