@@ -33,16 +33,6 @@ Spray
 
 ### [Heroku](https://devcenter.heroku.com/articles/how-heroku-works)
 
-#### AddOn + logs
-
-```
-$ heroku logs --> tail
-$ heroku addons:add papertrail --> logging add-on
-$ heroku addons:open papertrail
-$ heroku addons:docs papertrail
-$ heroku addons
-```
-
 #### Scalability
 
 ```
@@ -79,13 +69,6 @@ git commit and push
 $ heroku open
 ```
 
-#### Console
-
-```
-$ heroku run node
-$ heroku run bash
-```
-
 #### [ClearDB MySQL](https://www.cleardb.com/developers/connect/paas/heroku/nodejs)
 
 ```
@@ -95,13 +78,40 @@ $ heroku config:add DATABASE_URL=(the_copied_value_of_CLEARDB_DATABASE_URL)
 $ heroku config -s | grep CLEARDB_DATABASE_URL >> .env
 $ more .env
 $ echo .env >> .gitignore --> sensitive configuration values should not be committed to source-control
-$ bin/beforeCommit.sh --> backup and delete .env in current folder
+$ bin/beforeCommit.sh --> backup `.env`
 ```
 
 - [Setup Heroku MySQL credentials on node.js](http://stackoverflow.com/questions/18408012/connection-to-mysql-from-nodejs-on-heroku-server)  
-    - [install mysql on node.js](https://www.npmjs.com/package/mysql)  
-    - credential info are saved to `.env`
+    - [install mysql on node.js](https://www.npmjs.com/package/mysql) `$ npm install`
+    - credential info are saved to `.env` and `heroku config:set`
     - add new connection on local MySQL with Heroku MySQL credentials -> create table, insert a record to mysql on local machine 
     - modify `index.js` and `package.json` 
 
+#### [Memcached Cloud](https://devcenter.heroku.com/articles/memcachedcloud)
+
+```
+$ heroku addons:add memcachedcloud:25
+$ heroku config
+set Memcached Cloud credentials both through `.env` and `heroku config:set`
+```
+
+* [https://www.npmjs.com/package/memjs](https://www.npmjs.com/package/memjs)
+    * include `memjs` into `package.json`, and then `$ npm install`
+
+#### Console
+
+```
+$ heroku run node
+$ heroku run bash
+```
+
+#### AddOn + logs
+
+```
+$ heroku logs --> tail
+$ heroku addons:add papertrail --> logging add-on
+$ heroku addons:open papertrail
+$ heroku addons:docs papertrail
+$ heroku addons
+```
     

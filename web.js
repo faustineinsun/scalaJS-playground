@@ -2,12 +2,20 @@ var express = require('express')
 var app = express();
 var cool = require('cool-ascii-faces');
 
-var mysql      = require('mysql');
+// ClearDB MySQL
+var mysql = require('mysql');
 var mysqlconnection = mysql.createConnection({
       host     : process.env.MYSQL_HOST,
       user     : process.env.MYSQL_USER,
       password : process.env.MYSQL_PASSWORD,
       database : process.env.MYSQL_DATABASE
+});
+
+// Memcached Cloud
+var memjs = require('memjs');
+var memjsclient = memjs.Client.create(process.env.MEMCACHEDCLOUD_SERVERS, {
+      username: process.env.MEMCACHEDCLOUD_USERNAME,
+      password: process.env.MEMCACHEDCLOUD_PASSWORD
 });
 
 // mysql connection
@@ -41,6 +49,15 @@ app.get('/', function(request, response) {
           response.send(['mysql book > '+ faces, rows]);
     });
     mysqlconnection.end();
+});
+
+// memcachedcloud
+// https://github.com/RedisLabs/memcachedcloud-node-sample
+memjsclient.set("foo", "bar");
+memjsclient.get("foo", function (err, value, key) {
+    if (value != null) {
+        console.log(value.toString()); // Will print "bar"
+    }
 });
 
 app.listen(app.get('port'), function() {
