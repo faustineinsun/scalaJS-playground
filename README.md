@@ -14,13 +14,22 @@ $ sbt
 > last
 > reload // reload the build file if sbt is still running
 > fastOptJS
-> ~fastOptJS
+> ~fastOptJS   // `~` means automatically refreshing the page when recompilation is complete
 > fullOptJS // takes tens of seconds, but can compress the compiled code
 ```
 
 ---
 
 - $ `git rm -r --cached .idea`
+
+---
+
+## Scala Tools
+
+* [scalatags](https://github.com/lihaoyi/scalatags)
+* [upickle](https://github.com/lihaoyi/upickle)
+* [scalaz](https://github.com/japgolly/scalaz)
+* [shapeless](https://groups.google.com/forum/#!searchin/scala-js/shapeless/scala-js/5Sf2up0z3PU/9F9SYB0qHEcJ)
 
 ---
 

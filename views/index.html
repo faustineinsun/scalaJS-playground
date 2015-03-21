@@ -170,11 +170,21 @@
 			<p>
 				<a class="btn" href="#">View details »</a>
 			</p>
+
+            <!--call scala.js generated js file-->
+            <!--from http://lihaoyi.github.io/hands-on-scala-js/-->
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-                    <img alt="600x400" src="http://lorempixel.com/600/400/city/1/">
+                    <canvas style="display: block" id="canvas" width="255" height="255"/>
 				</div>
 			</div>
+            <script type="text/javascript" src="js/scalaJS/example-opt.js"></script>
+            <!--install workbench https://github.com/lihaoyi/workbench which is an addon of scala.js that can restart the app when a new compilation run finishes, and show debug log in the Chrome console-->
+            <!--script type="text/javascript" src="/workbench.js"></script-->
+            <script>
+                example.ScalaJSExample().main(document.getElementById('canvas'));
+            </script>
+
             <br> <br> <br>
 			<div class="progress active">
 				<div class="progress-bar progress-success">
