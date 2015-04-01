@@ -7,6 +7,15 @@ scalaJS-playground
 
 ---
 
+## Local
+
+#### Run on local
+
+* $ `foreman start web`
+* [http://localhost:5000/](http://localhost:5000/)
+
+#### Scala.js
+
 ```
 $ sbt
 > // set scalaJSStage in Global := FastOptStage // has been set in `local.sbt`, run code with Node.js
@@ -18,22 +27,14 @@ $ sbt
 > fullOptJS // takes tens of seconds, but can compress the compiled code
 ```
 
----
-
-- $ `git rm -r --cached .idea`
-
----
-
-## Scala Tools
+#### Scala Tools
 
 * [scalatags](https://github.com/lihaoyi/scalatags)
 * [upickle](https://github.com/lihaoyi/upickle)
 * [scalaz](https://github.com/japgolly/scalaz)
 * [shapeless](https://groups.google.com/forum/#!searchin/scala-js/shapeless/scala-js/5Sf2up0z3PU/9F9SYB0qHEcJ)
 
----
-
-## [Node Modules](https://github.com/joyent/node/wiki/modules)   
+#### [Node Modules](https://github.com/joyent/node/wiki/modules)   
 
 * template engine
     * [gaikan](https://github.com/Deathspike/gaikan) the fastest
@@ -123,7 +124,7 @@ $ heroku run bash
 #### AddOn + logs
 
 ```
-$ heroku logs --> tail
+$ heroku logs --tail
 $ heroku addons:add papertrail --> logging add-on
 $ heroku addons:open papertrail
 $ heroku addons:docs papertrail
