@@ -69,13 +69,26 @@
                 </div>
 
                 <br> <br>
-
                 <div class="row clearfix">
                     <div class="col-md-12 column">
                         <canvas style="display: block" id="canvas" width="255" height="255"/>
                         <script>
                             example.ScalaJSExample().main(document.getElementById('canvas'));
                         </script>
+                    </div>
+                </div>
+
+                <br> <br>
+                <div class="row clearfix">
+                    <div class="btn-group btn-group-sm">
+                        <button id="memcached-set-command" onclick="getMemcachedResponse('set');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> set</button> 
+                        <button id="memcached-get-command" onclick="getMemcachedResponse('get');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> get</button> 
+                        <button id="memcached-stats-command" onclick="getMemcachedResponse('stats');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> stats</button> 
+                        <button id="memcached-delete-command" onclick="getMemcachedResponse('delete');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-justify"></em> delete</button>
+                    </div>
+                    <h4>Memcached Response:</h4>
+                    <div style="border: 1px solid yellow; background-color: white; padding: 10px 20px; min-height: 53px;">
+                        <p> <div id="memcachedresponse"></div> </p>
                     </div>
                 </div>
 
