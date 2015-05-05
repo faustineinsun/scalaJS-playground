@@ -78,7 +78,36 @@
                     </div>
                 </div>
 
+
+
                 <br> <br>
+                <h4>Neo4j:</h4>
+                <div class="row clearfix">
+                <textarea class="form-control" rows="3" cols="60" placeholder="Please enter Neo4j Cypher query string here, e.g.: MATCH (n) RETURN n;" id="text" name="text"></textarea>
+                <a href="#" class="btn btn-default" type="button" id="submitqueryneo4j">Submit Query</a>
+                <script type="text/javascript">
+                    $("#submitqueryneo4j").on("click", function(event) {
+                        event.preventDefault();
+                        var text = $("textarea#text").val();
+                        var searchPhrases = text;
+                        if (document.URL.indexOf("localhost") > -1) { // only modify neo4j on local machine
+                            if (text) {
+                                console.log(text);
+                                $.get('/nodeneo4j?q=' + text.toString(), function() {
+                            });
+                            } else {
+                                alert("Please enter text in textarea");
+                            }
+                        } else {
+                            alert("Oops, this function is only available to the administrator.");
+                        }
+                    });
+                </script>
+                </div>
+
+
+                <br> <br>
+                <h4>Memcached:</h4>
                 <div class="row clearfix">
                     <div class="btn-group btn-group-sm">
                         <button id="memcached-set-command" onclick="getMemcachedResponse('set');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> set</button> 
@@ -86,7 +115,8 @@
                         <button id="memcached-stats-command" onclick="getMemcachedResponse('stats');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> stats</button> 
                         <button id="memcached-delete-command" onclick="getMemcachedResponse('delete');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-justify"></em> delete</button>
                     </div>
-                    <h4>Memcached Response:</h4>
+                    <br> 
+                    Memcached Response:
                     <div style="border: 1px solid yellow; background-color: white; padding: 10px 20px; min-height: 53px;">
                         <p> <div id="memcachedresponse"></div> </p>
                     </div>

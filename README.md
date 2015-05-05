@@ -130,6 +130,18 @@ $ heroku addons:open papertrail
 $ heroku addons:docs papertrail
 $ heroku addons
 ```
+
+#### [Neo4j Graph Database](https://addons.heroku.com/graphenedb)
+
+[localhost:7474](http://localhost:7474/)  
+
+```
+local 
+$ brew install neo4j
+$ neo4j start
+```
+
+[philippkueng/node-neo4j](https://github.com/philippkueng/node-neo4j): Neo4j REST API wrapper for Node.js
     
 ---
 
