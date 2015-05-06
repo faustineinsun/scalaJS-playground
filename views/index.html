@@ -8,8 +8,9 @@
         <meta name="author" content="faustineinsun">
 
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <!--script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script-->
         <script type="text/javascript" src="js/d3.min.js"></script>
+        <script src="https://cdn.rawgit.com/Neilos/bihisankey/master/bihisankey.js"></script>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
@@ -46,7 +47,7 @@
                     </nav>
                 </div>
 
-                <br> <br> <br> <br>
+                <br> <br> <br>
                 <div class="col-md-12 column">
                     <div class="alert alert-warning alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -65,14 +66,13 @@
                         </d3graph>
                     </div>
                 </div>
-                <br>
-                <button id="neo4jupdatagraph" onclick="updataneo4jgraph();return false;" class="btn btn-warning" type="button">Updata Graph</button> 
 
                 <br> <br>
                 <h4>Neo4j:</h4>
                 <div class="row clearfix">
                 <textarea class="form-control" rows="3" cols="60" placeholder="Please enter Neo4j Cypher query string here, e.g.: MATCH (n) RETURN n;" id="text" name="text"></textarea>
                 <a href="#" class="btn btn-default" type="button" id="submitqueryneo4j">Submit Query</a>
+                <button id="neo4jupdatagraph" onclick="updataneo4jgraph();return false;" class="btn btn-warning" type="button">Updata Graph</button> 
                 <script type="text/javascript">
                     $("#submitqueryneo4j").on("click", function(event) {
                         event.preventDefault();

@@ -1,0 +1,24 @@
+{"nodes":[
+    {"type":"Startpoint","id":"0","parent":null,"name":"Start"},
+    {"type":"Category","id":"a","parent":null,"name":"AICategories"},
+    {"type":"Category","id":1,"parent":"a","number":"101","name":"Classification"},
+    {"type":"Category","id":2,"parent":"a","number":"120","name":"Regression"},
+    {"type":"Category","id":3,"parent":"a","number":"140","name":"Clustering"},
+    {"type":"Category","id":4,"parent":"a","number":"150","name":"Dimensionality Reduction"},
+    {"type":"Category","id":5,"parent":"a","number":"160","name":"Model Selection"},
+    {"type":"Category","id":6,"parent":"a","number":"170","name":"Preprocessing"},
+    {"type":"AIAlgs","id":"b","parent":"null","number":"170","name":"AIAlgs"},
+    {"type":"AIAlg","id":7,"parent":"b","number":"175","name":"KNN"},
+    {"type":"AIAlg","id":8,"parent":"b","number":"178","name":"SVM"}
+    ],
+	"links": [
+    {"source":0, "target":1, "value":Math.floor(Math.random() * 100)},
+    {"source":0, "target":2, "value":Math.floor(Math.random() * 100)},
+    {"source":0, "target":3, "value":Math.floor(Math.random() * 100)},
+    {"source":0, "target":4, "value":Math.floor(Math.random() * 100)},
+    {"source":0, "target":5, "value":Math.floor(Math.random() * 100)},
+    {"source":0, "target":6, "value":Math.floor(Math.random() * 100)},
+    {"source":1, "target":7, "value":Math.floor(Math.random() * 100)},
+    {"source":1, "target":8, "value":Math.floor(Math.random() * 100)}
+    ]
+}

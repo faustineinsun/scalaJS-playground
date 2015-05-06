@@ -1,1 +1,0 @@
-contains static pdf files

@@ -1,28 +1,31 @@
-path.link {
-    fill: none;
-    stroke: #666;
-    stroke-width: 1.5px;
+.node rect {
+  cursor: move;
+  shape-rendering: crispEdges;
 }
-marker#ACTED_IN {
-    fill: green;
+
+.node text {
+  pointer-events: none;
+  text-shadow: 1px 1px 2px #fff;
+  font-size: 0.8em;
+  font-family: sans-serif;
 }
-path.link.ACTED_IN {
-    stroke: green;
+
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  font-size: 0.7em;
+  font-family: sans-serif;
+  padding: 3px;
+  width: auto;
+  height: auto;
+  background-color: #F2F2F2;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+  -mox-box-shadow: 0px 0px 0px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 0px 5px rbga(0, 0, 0, 0.4);
+  pointer-events: none;
 }
-path.link.DIRECTED {
-    stroke-dasharray: 0, 2 1;
-}
-circle {
-    fill: #ccc;
-    stroke: #333;
-    stroke-width: 1.5px;
-}
-text {
-    font: 10px sans-serif;
-    pointer-events: none;
-}
-text.shadow {
-    stroke: #fff;
-    stroke-width: 3px;
-    stroke-opacity: .8;
+
+.value {
+  white-space: pre-line;
+  margin: 0;
 }
