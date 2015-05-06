@@ -1,0 +1,129 @@
+{
+    "results": [{
+        "columns": ["path"],
+            "data": [{
+            "graph": {
+                "nodes": [{
+                    "id": "343",
+                        "labels": [
+                        "Movie"],
+                        "properties": {
+                        "title": "The Matrix",
+                            "released": 1999,
+                            "tagline": "Welcome to the Real World"
+                    }
+                }, {
+                    "id": "344",
+                        "labels": [
+                        "Person"],
+                        "properties": {
+                        "name": "Keanu Reeves",
+                            "born": 1964
+                    }
+                }],
+                    "relationships": [{
+                    "id": "506",
+                        "type": "ACTED_IN",
+                        "startNode": "344",
+                        "endNode": "343",
+                        "properties": {
+                        "roles": [
+                            "Neo"]
+                    }
+                }]
+            }
+        }, {
+            "graph": {
+                "nodes": [{
+                    "id": "497",
+                        "labels": [
+                        "Movie"],
+                        "properties": {
+                        "title": "Something's Gotta Give",
+                            "released": 2003
+                    }
+                }, {
+                    "id": "344",
+                        "labels": [
+                        "Person"],
+                        "properties": {
+                        "name": "Keanu Reeves",
+                            "born": 1964
+                    }
+                }],
+                    "relationships": [{
+                    "id": "727",
+                        "type": "ACTED_IN",
+                        "startNode": "344",
+                        "endNode": "497",
+                        "properties": {
+                        "roles": [
+                            "Julian Mercer"]
+                    }
+                }]
+            }
+        }, {
+            "graph": {
+                "nodes": [{
+                    "id": "443",
+                        "labels": [
+                        "Movie"],
+                        "properties": {
+                        "title": "Johnny Mnemonic",
+                            "released": 1995,
+                            "tagline": "The hottest data on earth. In the coolest head in town"
+                    }
+                }, {
+                    "id": "344",
+                        "labels": [
+                        "Person"],
+                        "properties": {
+                        "name": "Keanu Reeves",
+                            "born": 1964
+                    }
+                }],
+                    "relationships": [{
+                    "id": "638",
+                        "type": "ACTED_IN",
+                        "startNode": "344",
+                        "endNode": "443",
+                        "properties": {
+                        "roles": [
+                            "Johnny Mnemonic"]
+                    }
+                }]
+            }
+        }, {
+            "graph": {
+                "nodes": [{
+                    "id": "430",
+                        "labels": [
+                        "Movie"],
+                        "properties": {
+                        "title": "The Replacements",
+                            "released": 2000,
+                            "tagline": "Pain heals, Chicks dig scars... Glory lasts forever"
+                    }
+                }, {
+                    "id": "344",
+                        "labels": [
+                        "Person"],
+                        "properties": {
+                        "name": "Keanu Reeves",
+                            "born": 1964
+                    }
+                }],
+                    "relationships": [{
+                    "id": "620",
+                        "type": "ACTED_IN",
+                        "startNode": "344",
+                        "endNode": "430",
+                        "properties": {
+                        "roles": [
+                            "Shane Falco"]
+                    }
+                }]
+            }
+        }]
+    }], "errors": []
+}

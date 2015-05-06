@@ -2,27 +2,17 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Tardigrade: AI Learning Hub</title>
+        <title>Tardigrade</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="AI Learning Hub">
         <meta name="author" content="faustineinsun">
 
-        <!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
-        <!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
-        <!--script src="js/less-1.3.3.min.js"></script-->
-        <!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-        <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-        <!--link href="css/bootstrap.min.css" rel="stylesheet"-->
-        <!-- Optional theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-        <link href="css/style.css" rel="stylesheet">
-
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <![endif]-->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
         <!-- Fav and touch icons -->
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
@@ -31,54 +21,51 @@
         <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
         <link rel="shortcut icon" href="img/favicon.png">
 
-        <script type="text/javascript" src="js/jquery.min.js"></script>
-        <!--script type="text/javascript" src="js/bootstrap.min.js"></script-->
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="js/scripts.js"></script>
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <![endif]-->
+
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/d3js.css" rel="stylesheet">
+
         <script type="text/javascript" src="js/scalaJS/example-opt.js"></script>
+        <script type="text/javascript" src="js/scripts.js"></script>
     </head>
 
     <body>
         <div class="container">
-
             <div class="row clearfix">
+
                 <div class="col-md-12 column">
                     <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Game Zone</a>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Tardigrade</a>
                     </div>
                     </nav>
-                    <br> <br> <br>
-                    <div class="alert alert-success alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h4>
-                            It's game time!
-                    </h4> Have fun with this simple Flappy Bird game =)</a>
                 </div>
 
-                <div class="row clearfix">
-                    <div class="col-md-12 column">
-                        <!--install workbench https://github.com/lihaoyi/workbench which is an addon of scala.js that can restart the app when a new compilation run finishes, and show debug log in the Chrome console-->
-                        <!--script type="text/javascript" src="/workbench.js"></script-->
-                        <canvas style="display: block" id="flcanvas" />
-                        <script>
-                            canvasapp.FlappyLine().main(document.getElementById('flcanvas'));
-                        </script>
+                <br> <br> <br> <br>
+                <div class="col-md-12 column">
+                    <div class="alert alert-warning alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4>
+                            Tardigrade AI Graph
+                        </h4> incubating ... 
                     </div>
                 </div>
 
                 <br> <br>
                 <div class="row clearfix">
                     <div class="col-md-12 column">
-                        <canvas style="display: block" id="canvas" width="255" height="255"/>
-                        <script>
-                            example.ScalaJSExample().main(document.getElementById('canvas'));
-                        </script>
+                        <d3graph>
+                            <!--reference from http://bl.ocks.org/rkirsling/5001347-->
+                            <script type="text/javascript" src="js/d3aiGraph.js"></script>
+                        </d3graph>
                     </div>
                 </div>
-
-
+                <br>
+                <button id="neo4jupdatagraph" onclick="updataneo4jgraph();return false;" class="btn btn-warning" type="button">Updata Graph</button> 
 
                 <br> <br>
                 <h4>Neo4j:</h4>
@@ -105,7 +92,6 @@
                 </script>
                 </div>
 
-
                 <br> <br>
                 <h4>Memcached:</h4>
                 <div class="row clearfix">
@@ -122,8 +108,40 @@
                     </div>
                 </div>
 
+                <br> <br> <br>
+                <div class="col-md-12 column">
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4>
+                            It's game time!
+                    </h4> Have fun with this simple Flappy Bird game from <a href="http://lihaoyi.github.io/hands-on-scala-js/">lihaoyi.github.io/hands-on-scala-js</a>
+                    </div>
+                </div>
+
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <!--install workbench https://github.com/lihaoyi/workbench which is an addon of scala.js that can restart the app when a new compilation run finishes, and show debug log in the Chrome console-->
+                        <!--script type="text/javascript" src="/workbench.js"></script-->
+                        <canvas style="display: block" id="flcanvas" />
+                        <script>
+                            canvasapp.FlappyLine().main(document.getElementById('flcanvas'));
+                        </script>
+                    </div>
+                </div>
+
+                <br> <br>
+                <div class="row clearfix">
+                    <div class="col-md-12 column">
+                        <canvas style="display: block" id="canvas" width="255" height="255"/>
+                        <script>
+                            example.ScalaJSExample().main(document.getElementById('canvas'));
+                        </script>
+                    </div>
+                </div>
+
             </div>
         </div>
+
         <br> <br> <br> <br> <br>
         <div class="row clearfix">
             <div class="col-md-12 column">

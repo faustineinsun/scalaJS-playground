@@ -12,6 +12,7 @@
     "cool-ascii-faces": "~1.3.x",
     "mysql": "~2.5.x",
     "node-neo4j": "~2.0.x",
+    "xmlhttprequest": "~1.7.x",
     "memjs": "~0.8.x"
   },
   "engines": {

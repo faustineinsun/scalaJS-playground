@@ -1,5 +1,8 @@
 var express = require('express')
 var cool = require('cool-ascii-faces');
+var fs = require("fs");
+var neo4jRESTapi = require('../libs/neo4j/neo4jRESTapi');
+var neo4jQueryResults2D3JSON = require('../libs/neo4j/neo4jQueryResults2D3JSON');
 
 // ClearDB MySQL
 var mysql = require('mysql');
@@ -20,7 +23,9 @@ var memjsclient = memjs.Client.create(process.env.MEMCACHEDCLOUD_SERVERS, {
 // Neo4j graphenedb
 var neo4j = require('node-neo4j');
 var neo4jdb = new neo4j(process.env.GRAPHENEDB_URL);
-
+var neo4jres;
+var nodes=[], links=[];
+var neo4jgraph;
 
 // find static files in ./public
 var app = express();
@@ -138,7 +143,7 @@ app.get('/nodeneo4j', function(request, response) {
      * therefore they should be put into 3 different app.get(...) APIs
     neo4jdb.cypherQuery("MATCH (n) OPTIONAL MATCH (n)-[r]-() DELETE n,r;", function(err, result){
         if(err) throw err;
-        console.log("\nNeo4jGraphenedb remove all nodes and relationships");
+        console.log("\nNeo4jGraphenedb remove all nodes and neo4jRESTapirelationships");
         console.log(result.data); // delivers an array of query results
         console.log(result.columns); // delivers an array of names of objects getting returned
     });
@@ -159,6 +164,12 @@ app.get('/nodeneo4j', function(request, response) {
         console.log(result.columns); // delivers an array of names of objects getting returned
     });
     */
+});
+
+app.get('/updategraphneo4j', function(req, res) {
+    //neo4jRESTapi.setNeo4jAuthToken();
+    //neo4jRESTapi.getGraphAllNodesEdges();
+    neo4jQueryResults2D3JSON.toGraphJSON();
 });
 
 ////////////////////
