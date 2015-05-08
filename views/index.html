@@ -2,113 +2,28 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Tardigrade</title>
+        <title>scalaJS-playground</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="AI Learning Hub">
+        <meta name="description" content="scala.js playground">
         <meta name="author" content="faustineinsun">
 
         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-        <!--script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script-->
-        <script type="text/javascript" src="js/d3.min.js"></script>
-        <script src="https://cdn.rawgit.com/Neilos/bihisankey/master/bihisankey.js"></script>
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-        <!-- Fav and touch icons -->
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
-        <link rel="shortcut icon" href="img/favicon.png">
-
-        <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-        <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <![endif]-->
-
         <link href="css/style.css" rel="stylesheet">
-        <link href="css/d3js.css" rel="stylesheet">
 
         <script type="text/javascript" src="js/scalaJS/example-opt.js"></script>
         <script type="text/javascript" src="js/scripts.js"></script>
-        <script type="text/javascript" src="js/d3aiGraph.js"></script>
     </head>
 
     <body>
         <div class="container">
             <div class="row clearfix">
 
-                <div class="col-md-12 column">
-                    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Tardigrade</a>
-                    </div>
-                    </nav>
-                </div>
-
-                <br> <br> <br>
-                <div class="col-md-12 column">
-                    <div class="alert alert-warning alert-dismissable">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                        <h4>
-                            Tardigrade AI Graph
-                        </h4> 
-                        inspired by <a href="http://scikit-learn.org/stable/index.html">scikit-learn</a> and <a href="https://github.com/Neilos/bihisankey">bihisankey.js</a>, the is an incubating project ... 
-                    </div>
-                </div>
-
                 <br> <br>
-                <div class="row clearfix">
-                    <div class="col-md-12 column">
-                        <div id="d3graph"></div>
-                    </div>
-                </div>
-
-                <br> <br>
-                <h4>Neo4j:</h4>
-                <div class="row clearfix">
-                <textarea class="form-control" rows="3" cols="60" placeholder="Please enter Neo4j Cypher query string here, e.g.: MATCH (n) RETURN n;" id="text" name="text"></textarea>
-                <a href="#" class="btn btn-default" type="button" id="submitqueryneo4j">Submit Query</a>
-                <button id="neo4jupdatagraph" onclick="updataneo4jgraph();return false;" class="btn btn-warning" type="button">Updata Graph</button> 
-                <script type="text/javascript">
-                    $("#submitqueryneo4j").on("click", function(event) {
-                        event.preventDefault();
-                        var text = $("textarea#text").val();
-                        var searchPhrases = text;
-                        if (document.URL.indexOf("localhost") > -1) { // only modify neo4j on local machine
-                            if (text) {
-                                console.log(text);
-                                $.get('/nodeneo4j?q=' + text.toString(), function() {
-                            });
-                            } else {
-                                alert("Please enter text in textarea");
-                            }
-                        } else {
-                            alert("Oops, this function is only available to the administrator.");
-                        }
-                    });
-                </script>
-                </div>
-
-                <br> <br>
-                <h4>Memcached:</h4>
-                <div class="row clearfix">
-                    <div class="btn-group btn-group-sm">
-                        <button id="memcached-set-command" onclick="getMemcachedResponse('set');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-left"></em> set</button> 
-                        <button id="memcached-get-command" onclick="getMemcachedResponse('get');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-center"></em> get</button> 
-                        <button id="memcached-stats-command" onclick="getMemcachedResponse('stats');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-right"></em> stats</button> 
-                        <button id="memcached-delete-command" onclick="getMemcachedResponse('delete');return false;" class="btn btn-default" type="button"><em class="glyphicon glyphicon-align-justify"></em> delete</button>
-                    </div>
-                    <br> 
-                    Memcached Response:
-                    <div style="border: 1px solid yellow; background-color: white; padding: 10px 20px; min-height: 53px;">
-                        <p> <div id="memcachedresponse"></div> </p>
-                    </div>
-                </div>
-
-                <br> <br> <br>
                 <div class="col-md-12 column">
                     <div class="alert alert-success alert-dismissable">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
